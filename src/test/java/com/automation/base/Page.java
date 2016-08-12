@@ -21,8 +21,8 @@ public class Page {
 	
 	
 	public Topmenu getMenu(){
-		
-		return PageFactory.initElements(driver, Topmenu.class);
+		//Here  is the Change
+		return PageFctory.initElements(driver, Topmenu.class);
 	}
 	
 	

@@ -2,16 +2,15 @@ package com.automation.base;
 
 
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
 import com.automation.pages.common.Topmenu;
 
 public class Page {
 	
 	protected WebDriver driver;
-	public Page() {
-		
-		
-		
-	}
+	
 
 	public Page(WebDriver driver) {
 		

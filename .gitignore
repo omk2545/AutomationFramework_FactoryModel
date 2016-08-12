@@ -1,0 +1,17 @@
+*.html
+test-output/jquery-1.7.1.min.js
+*.png
+*.idea
+*.gif
+*.css
+#test-output/testng-results.xml
+*.iml
+test-output/Default suite/Default test.xml
+test-output/junitreports/TEST-com.automation.testcases.TestFlipkart.xml
+test-output/Default suite/testng-failed.xml
+*.js
+/test-output/*
+/target/*
+.project
+*.classpath
+*.prefs

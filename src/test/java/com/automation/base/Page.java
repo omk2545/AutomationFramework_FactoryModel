@@ -22,7 +22,7 @@ public class Page {
 	
 	public Topmenu getMenu(){
 		//Here  is the Change
-		return PageFctory.initElements(driver, Topmenu.class);
+		return PageFactory.initElements(driver, Topmenu.class);
 	}
 	
 	

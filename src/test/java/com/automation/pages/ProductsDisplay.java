@@ -10,6 +10,7 @@ import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 
 import com.automation.base.Page;
+import com.automation.helper.Constants;
 
 public class ProductsDisplay extends Page {
 	
@@ -30,9 +31,9 @@ public class ProductsDisplay extends Page {
 public Object selectFirstProductFromList(){
 	
 	
-	List<WebElement > allproc = driver.findElements(By.cssSelector("div[class= 'product-unit unit-4 browse-product new-design']"));
+	List<WebElement > allproc_list_productDisplay = driver.findElements(By.cssSelector(Constants.allproc_list_productDisplay));
 	
-	System.out.println("size "+allproc.size());
+	System.out.println("size "+allproc_list_productDisplay.size());
 	
 	
 	if (AllProducts.isEmpty()) {

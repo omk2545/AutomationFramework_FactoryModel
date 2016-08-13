@@ -21,18 +21,22 @@ public WebDriver driver;
 	public void init() {
 		driver = new FirefoxDriver();
 		driver.manage().window().maximize();
+	   // driver.get("http:www.google.com");
 	}
 
 	@Test
 	public void test01() {
+		System.out.println("Tess");
 		
 		LandingPage landingPage = PageFactory.initElements(driver,
 				LandingPage.class);
+		//this is change
 		
-		landingPage.getMenu().ClickonEletronics();
 		
 		DisplayPage displayPage = landingPage.gotoFlipkart();
 		Object Page = displayPage.findProduct(Constants.validProduct);
+		
+		
 		if (Page instanceof ProductsDisplay) {
 			System.out.println("We are on the Product Display ");
 		} else {

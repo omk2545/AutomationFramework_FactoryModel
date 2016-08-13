@@ -18,6 +18,7 @@ public class LandingPage extends Page{
 	 
 public DisplayPage gotoFlipkart(){
 	
+	System.out.println("Inside the class");
 	driver.get("http://www.flipkart.com");
 	
 	return PageFactory.initElements(driver, DisplayPage.class);

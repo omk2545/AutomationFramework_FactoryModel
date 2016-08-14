@@ -15,3 +15,4 @@ test-output/Default suite/testng-failed.xml
 .project
 *.classpath
 *.prefs
+/target/

@@ -9,13 +9,13 @@ import com.automation.pages.common.Topmenu;
 
 public class Page {
 	
-	protected WebDriver driver;
+	public WebDriver driver;
 	
 
 	public Page(WebDriver driver) {
 		
 		this.driver = driver;
-		PageFactory.initElements(driver, Topmenu.class);
+	//Topmenu topmenu	 PageFactory.initElements(driver, Topmenu.class);
 		
 	}
 	

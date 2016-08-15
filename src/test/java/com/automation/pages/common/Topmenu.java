@@ -4,11 +4,11 @@ import org.openqa.selenium.WebDriver;
 
 import com.automation.base.Page;
 
-public class Topmenu extends Page {
+public class Topmenu  {
 	
-
+WebDriver driver;
 	public Topmenu(WebDriver driver) {
-      super(driver);
+    this.driver = driver;
 	}
 
 //	public void click

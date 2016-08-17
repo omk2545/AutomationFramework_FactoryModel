@@ -1,6 +1,7 @@
 package com.automation.utils;
 
 
+import com.automation.helper.Constants;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.util.HSSFColor;
@@ -489,15 +490,18 @@ public class ExcelUtil {
     public static Object[][] getexcel(){
 
        ExcelUtil  datatable = null;
-        datatable = new ExcelUtil("D:\\Resources.xlsx");
+
+        String FilePath = Constants.USER_DIR + "\\src\\test\\java\\Resources"+"\\Data.xlsx";
+        datatable = new ExcelUtil(FilePath);
+
         int colcount = datatable.getColumnCount("Test01");
         int rowcount = datatable.getRowCount("Test01");
         Object data[][] = new Object[rowcount][colcount];
 
-        for (int row = 1; row <= rowcount; row++) {
+        for (int row = 2; row <= rowcount; row++) {
 
             for (int col = 0; col < colcount ; col++) {
-//				System.out.println("value is "+datatable.getCellData("Test01", col, row));
+				System.out.println("value is "+datatable.getCellData("Test01", col, row));
                 data[row-1][col] = datatable.getCellData("Test01", col, row);
 
             }
@@ -548,7 +552,7 @@ public class ExcelUtil {
         System.out.println("No of r "+no_of_rows+"colms  "+no_of_coloumns);
 
 
-        for (int i = 0; i < no_of_rows; i++) {
+        for (int i = 1; i < no_of_rows; i++) {
 
             for (int j = 0; j < no_of_coloumns; j++) {
 

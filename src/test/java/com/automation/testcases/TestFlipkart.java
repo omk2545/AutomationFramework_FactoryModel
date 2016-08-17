@@ -1,21 +1,15 @@
 package com.automation.testcases;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-
 import com.automation.helper.Constants;
 import com.automation.helper.Constants.BROWSERTYPE;
 import com.automation.pages.DisplayPage;
 import com.automation.pages.LandingPage;
 import com.automation.pages.ProductsDisplay;
 import com.automation.testcases.base.BaseTest;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.Test;
 
 public class TestFlipkart extends BaseTest{
 	
@@ -32,7 +26,7 @@ public class TestFlipkart extends BaseTest{
 				LandingPage.class);
 		//this is change
 		
-		//landingPage.getMenu().ClickonEletronics();
+		landingPage.getMenu().ClickonEletronics();
 		
 		
 		DisplayPage displayPage = landingPage.gotoFlipkart();
@@ -41,8 +35,12 @@ public class TestFlipkart extends BaseTest{
 		
 		if (Page instanceof ProductsDisplay) {
 			System.out.println("We are on the Product Display ");
+			Assert.assertTrue(true);
+
 		} else {
 			System.out.println("We are on the Display page only ");
+			System.out.println("Not able to find the Product");
+			Assert.assertTrue(false);
 		}
 
 		Object Page2 = ((ProductsDisplay) Page).selectFirstProductFromList();

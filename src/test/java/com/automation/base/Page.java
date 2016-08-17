@@ -13,12 +13,12 @@ public class Page {
 	public Page(WebDriver driver) {
 
 		this.driver = driver;
+//		Menu initialization as menu is common throughout the Pages
 		topmenu = PageFactory.initElements(driver, Topmenu.class);
 
 	}
 
 	public Topmenu getMenu() {
-		// Here is the Change
 		return topmenu;
 	}
 

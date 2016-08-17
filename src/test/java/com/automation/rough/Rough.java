@@ -52,19 +52,13 @@ public class Rough {
                     case Cell.CELL_TYPE_STRING:
 
                         System.out.println(cell.getStringCellValue());
-
                         break;
 
                     default:
                         break;
                 }
-
             }
-
-
         }
-
-
 
     }
 

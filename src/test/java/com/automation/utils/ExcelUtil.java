@@ -162,12 +162,8 @@ public class ExcelUtil {
                             .substring(2);
                     cellText = cal.get(Calendar.MONTH) + 1 + "/"
                             + cal.get(Calendar.DAY_OF_MONTH) + "/" + cellText;
-
                     // System.out.println(cellText);
-
                 }
-
-
 
                 return cellText;
             }else if(cell.getCellType()==Cell.CELL_TYPE_BLANK)
@@ -497,18 +493,13 @@ public class ExcelUtil {
         int colcount = datatable.getColumnCount("Test01");
         int rowcount = datatable.getRowCount("Test01");
         Object data[][] = new Object[rowcount][colcount];
-
         for (int row = 2; row <= rowcount; row++) {
-
             for (int col = 0; col < colcount ; col++) {
 				System.out.println("value is "+datatable.getCellData("Test01", col, row));
                 data[row-1][col] = datatable.getCellData("Test01", col, row);
-
             }
 
         }
-
-
         //Code to Display the data
 //		for (int i = 0; i < rowcount; i++) {
 //
@@ -519,38 +510,17 @@ public class ExcelUtil {
 //			}
 //
 //		}
-
-
         return data;
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public static void main(String[] args) {
 
-
-
         Object[][] valuefromexcel = getexcel();
-
         int no_of_rows  = valuefromexcel.length;
         int no_of_coloumns = valuefromexcel[0].length;
 
-
         System.out.println("No of r "+no_of_rows+"colms  "+no_of_coloumns);
-
 
         for (int i = 1; i < no_of_rows; i++) {
 
@@ -561,12 +531,6 @@ public class ExcelUtil {
         }
 
     }
-
-
-
-
-
-
 
 //		Excel_helpe datatable = null;
 //		datatable = new Excel_helpe("D:\\Resources.xlsx");
@@ -587,7 +551,4 @@ public class ExcelUtil {
 //			}
 //		}
 //	}
-
-
-
 }

@@ -1,9 +1,7 @@
 package com.automation.utils;
 
-import com.automation.helper.Constants;
 import com.relevantcodes.extentreports.DisplayOrder;
 import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.NetworkMode;
 
 import java.io.File;
 import java.util.Date;
@@ -23,7 +21,7 @@ if (extentReports == null){
     extentReports = new ExtentReports( "D:\\reports\\"+ fileName, true,DisplayOrder.NEWEST_FIRST);
 extentReports.loadConfig(new File(System.getProperty("user.dir")+ "\\Resources\\ReportsConfig.xml"));
 System.out.println(System.getProperty("user.dir")+ "\\Resources\\ReportsConfig.xml");
-    extentReports.addSystemInfo("sss","2.53");
+    extentReports.addSystemInfo("Selenium ","2.53");
 }
 
 return  extentReports;

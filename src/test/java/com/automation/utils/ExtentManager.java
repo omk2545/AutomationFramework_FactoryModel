@@ -1,5 +1,6 @@
 package com.automation.utils;
 
+import com.automation.helper.Constants;
 import com.relevantcodes.extentreports.DisplayOrder;
 import com.relevantcodes.extentreports.ExtentReports;
 
@@ -10,7 +11,7 @@ import java.util.Date;
  * Created by Lenovo on 8/17/2016.
  */
 public class ExtentManager {
-    public static ExtentReports extent;
+    private static ExtentReports extent;
 
 
     public static ExtentReports getInstance() {
@@ -18,8 +19,9 @@ public class ExtentManager {
         if (extent == null) {
             Date d = new Date();
             String fileName = d.toString().replace(":", "_").replace(" ", "_") + ".html";
-            String reportPath = "D://";
-
+            //String reportPath = "D:\\reports\\"+fileName;
+            String reportPath = Constants.USER_DIR+"\\reports\\" +fileName;
+            System.out.println(reportPath);
             extent = new ExtentReports(reportPath, true, DisplayOrder.NEWEST_FIRST);
 
 

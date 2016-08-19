@@ -78,7 +78,7 @@ public class TestFlipkart extends BaseTest{
 			System.out.println(pathToFile);
 
 
-String file = extentTest.addScreenCapture(file);
+String file = extentTest.addScreenCapture(pathToFile);
             extentTest.log(LogStatus.FAIL, "This has failed  ", file);
 
 		}

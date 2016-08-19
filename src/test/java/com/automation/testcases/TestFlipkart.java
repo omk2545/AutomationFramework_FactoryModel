@@ -1,8 +1,11 @@
 package com.automation.testcases;
 
+import com.automation.helper.Constants;
 import com.automation.helper.Constants.BROWSERTYPE;
 import com.automation.pages.DisplayPage;
 import com.automation.pages.LandingPage;
+import com.automation.pages.ProductDetails;
+import com.automation.pages.ProductsDisplay;
 import com.automation.testcases.base.BaseTest;
 import com.automation.utils.ExtentManager;
 import com.automation.utils.UtilsFlipkart;
@@ -19,50 +22,59 @@ import java.io.IOException;
 
 public class TestFlipkart extends BaseTest{
 
-	ExtentReports extentReports;
-	ExtentTest extentTest;
+//	ExtentReports extentReports;
+//	ExtentTest extentTest;
 	@Test
 	public void test01() {
-		extentReports = ExtentManager.getInstance();
+        init(BROWSERTYPE.CHROME);
+        test = extentReports.startTest("TestCase01");
 
-		extentTest = extentReports.startTest("TestFlipkart");
 
 
-		init(BROWSERTYPE.CHROME);
 
 		//System.out.println("Tess");
 		
 		//driver = new FirefoxDriver();
 		
-		LandingPage landingPage = PageFactory.initElements(driver,
-				LandingPage.class);
+		/*LandingPage landingPage = PageFactory.initElements(driver,
+				LandingPage.class);*/
+
+        LandingPage landingPage = new LandingPage(driver,test);
+        PageFactory.initElements(driver,landingPage);
+
 		//extentTest.log(LogStatus.PASS,"We can conclude that test is Pass");
 
 
 		//this is change
 		
-		landingPage.getMenu().ClickonEletronics();
+		//landingPage.getMenu().ClickonEletronics();
 		
 		
 		DisplayPage displayPage = landingPage.gotoFlipkart();
-		extentTest.log(LogStatus.INFO,"Flipkart site opened ");
+        test.log(LogStatus.INFO,"Flipkart site opened ");
 
-		Assert.assertTrue(false);
+		//Assert.assertTrue(false);
 
-//		Object Page = displayPage.findProduct(Constants.validProduct);
-//
-//
-//		if (Page instanceof ProductsDisplay) {
-//			System.out.println("We are on the Product Display ");
-//			Assert.assertTrue(false);
-//
-//		} else {
-//			System.out.println("We are on the Display page only ");
-//			System.out.println("Not able to find the Product");
-//			Assert.assertTrue(false);
-//		}
-//
-//		Object Page2 = ((ProductsDisplay) Page).selectFirstProductFromList();
+		Object page = displayPage.findProduct(Constants.validProduct);
+
+
+		if (page instanceof ProductsDisplay) {
+			//System.out.println("");
+            test.log(LogStatus.INFO,"We are on the Product Display ");
+			Assert.assertTrue(true);
+
+		} else {
+
+			System.out.println("Not able to find the Product");
+			Assert.assertTrue(false);
+		}
+
+		  ((ProductsDisplay) page).selectFirstProductFromList();
+
+
+
+
+
 	}
 	
 	@AfterMethod
@@ -78,15 +90,23 @@ public class TestFlipkart extends BaseTest{
 			System.out.println(pathToFile);
 
 
-String file = extentTest.addScreenCapture(pathToFile);
-            extentTest.log(LogStatus.FAIL, "This has failed  ", file);
+String file = test.addScreenCapture(pathToFile);
+            test.log(LogStatus.FAIL, "This has failed  ", file);
 
 		}
-		extentReports.endTest(extentTest);
+		extentReports.endTest(test);
 
 		extentReports.flush();
 		driver.quit();
 
 	}
+
+
+//    @AfterMethod
+//    public void  Quit(){
+//
+//
+//
+//    }
 
 }

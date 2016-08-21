@@ -1,6 +1,8 @@
 package com.automation.utils;
 
 import com.automation.helper.Constants;
+import com.relevantcodes.extentreports.model.Test;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -30,6 +32,10 @@ public class UtilsFlipkart {
         scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         //The below method will save the screen shot in d drive with name "screenshot.png"
         FileUtils.copyFile(scrFile, new File(path));
+        
+       
+        
+        
 
        return path;
 

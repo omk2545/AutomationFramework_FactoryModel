@@ -45,7 +45,7 @@ public 	ExtentTest test;
 			
 		} 
 		
-		
+		driver.manage().window().maximize();
 	   // driver.get("http:www.google.com");
 	}
 

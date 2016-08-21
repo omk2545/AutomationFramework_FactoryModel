@@ -11,4 +11,16 @@ public class ProductDetails extends Page {
 		super(driver,test);
 		
 	}
+
+public boolean verifyProductPrice(){
+
+
+
+
+
+	return  true;
+
+}
+
+
 }

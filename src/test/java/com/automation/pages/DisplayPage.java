@@ -2,8 +2,11 @@ package com.automation.pages;
 
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.internal.Base64Encoder;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -26,8 +29,8 @@ public class DisplayPage extends Page {
 	@FindBy(css = Constants.button_search_DisplayPage)
 	WebElement button_search_DisplayPage;
 
-	@FindBy(css = "#container > div > div._3Q31_D > div._1XdvSH > div > div._2xw3j-")
-	WebElement ProductsdisplayedText;
+	//@FindBy(css = Constants.ProductsdisplayedText)
+	WebElement productsdisplayedText;
 
 	public Object findProduct(String productname) {
 
@@ -39,25 +42,50 @@ public class DisplayPage extends Page {
 		test.log(LogStatus.INFO, "Serching for product" + productname);
 		button_search_DisplayPage.click();
 
-		boolean isProductAvailable = true;
+		boolean isError = false;
+try {
+	productsdisplayedText = driver.findElement(By.cssSelector(Constants.ProductsdisplayedText));
+	isError = productsdisplayedText.isDisplayed();
+}catch(Exception e){
+	test.log(LogStatus.INFO,"Not able to find element");
 
-		wait.until(ExpectedConditions.visibilityOf(ProductsdisplayedText));
-
-		String productsData = ProductsdisplayedText.getText();
-		if (productsData.contains("No products")) {
-			isProductAvailable = false;
-
-		}
-		if (isProductAvailable) {
-
+}
+		if(!isError){
 			ProductsDisplay productsDisplay = new ProductsDisplay(driver, test);
 			PageFactory.initElements(driver,productsDisplay);
             return productsDisplay;
-			//return PageFactory.initElements(driver, ProductsDisplay.class);
+
 		} else {
 
+
 			return this;
+
 		}
+
+
+
+
+
+
+
+
+		//wait.until(ExpectedConditions.visibilityOf(ProductsdisplayedText));
+
+//		String productsData = ProductsdisplayedText.getText();
+//		if (productsData.contains("No products")) {
+//			isProductAvailable = false;
+//
+//		}
+//		if (isProductAvailable) {
+//
+//			ProductsDisplay productsDisplay = new ProductsDisplay(driver, test);
+//			PageFactory.initElements(driver,productsDisplay);
+//            return productsDisplay;
+//			//return PageFactory.initElements(driver, ProductsDisplay.class);
+//		} else {
+//
+//
+//		}
 
 
 	}

@@ -35,7 +35,7 @@ public 	ExtentTest test;
 	}
 
 
-	public  String  ScreenShot(WebDriver driver , String fileName) throws IOException {
+	public  String  ScreenShot(  String fileName) throws IOException {
 
 		Date date  = new Date();
 		String updatedName = date.toString().replace(":","_").replace(" ","_");
@@ -50,13 +50,13 @@ public 	ExtentTest test;
 		//The below method will save the screen shot in d drive with name "screenshot.png"
 		FileUtils.copyFile(scrFile, new File(path));
 
-		test.log(LogStatus.INFO,test.addScreenCapture(""));
+		test.log(LogStatus.INFO,test.addScreenCapture("C:\\Users\\Public\\Pictures\\Sample Pictures\\Koala.jpg"));
 
 
 
 
 
-		return path;
+		return "some";
 
 	}
 

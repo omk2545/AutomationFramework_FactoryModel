@@ -44,9 +44,6 @@ public class TestFlipkart extends BaseTest{
 
 		//extentTest.log(LogStatus.PASS,"We can conclude that test is Pass");
 
-
-		//this is change
-		
 		//landingPage.getMenu().ClickonEletronics();
 		
 		
@@ -69,13 +66,24 @@ public class TestFlipkart extends BaseTest{
 			Assert.assertTrue(false);
 		}
 
-		  ((ProductsDisplay) page).selectFirstProductFromList();
+
+        Object page2  = ((ProductsDisplay) page).selectFirstProductFromList();
+
+        if(page2 instanceof ProductDetails){
+
+            test.log(LogStatus.INFO,"We are on the product details page");
+
+        }else {
+
+            test.log(LogStatus.FAIL, "Failing the the test as product not found  ");
+            Assert.assertTrue(false);
+            // ((ProductsDisplay) page).selectFirstProductFromList();
+        }
+
+    boolean vale =    ((ProductDetails) page2).verifyProductPrice();
 
 
-
-
-
-	}
+    }
 	
 	@AfterMethod
 	public void TearDown(ITestResult iTestResult) throws IOException {

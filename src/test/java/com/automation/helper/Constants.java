@@ -17,7 +17,9 @@ public class Constants {
 	public static final String validProduct = "Moto X Play" ;
 	public static final String invalidProduct ="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 	
+//*******************************Menu****************//
 
+	public static final String eletronicsMenu = "#container > div > header > div.zi6sUf > div > ul > li:nth-child(1) > a > span";
 
 	public static enum BROWSERTYPE {
 		

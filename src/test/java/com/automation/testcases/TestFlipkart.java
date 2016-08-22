@@ -7,10 +7,7 @@ import com.automation.pages.LandingPage;
 import com.automation.pages.ProductDetails;
 import com.automation.pages.ProductsDisplay;
 import com.automation.testcases.base.BaseTest;
-import com.automation.utils.ExtentManager;
 import com.automation.utils.UtilsFlipkart;
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -50,6 +47,11 @@ public class TestFlipkart extends BaseTest{
 		DisplayPage displayPage = landingPage.gotoFlipkart();
         test.log(LogStatus.INFO,"Flipkart site opened ");
 
+		try {
+			displayPage.ScreenShot();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		//Assert.assertTrue(false);
 
 		Object page = displayPage.findProduct(Constants.validProduct);
@@ -64,6 +66,7 @@ public class TestFlipkart extends BaseTest{
 
 			System.out.println("Not able to find the Product");
 			Assert.assertTrue(false);
+
 		}
 
 
@@ -82,6 +85,7 @@ public class TestFlipkart extends BaseTest{
 
     boolean vale =    ((ProductDetails) page2).verifyProductPrice();
 
+			Assert.assertTrue(false);
 
     }
 	
@@ -94,12 +98,12 @@ public class TestFlipkart extends BaseTest{
 			String testName = iTestResult.getName();
 
 			System.out.println(testName);
-				String pathToFile = UtilsFlipkart.ScreenCapture(driver,testName);
-			System.out.println(pathToFile);
+				String pathToFile =
+			//System.out.println(pathToFile);
 
+           UtilsFlipkart.capScreen(driver,test);
 
-String file = test.addScreenCapture(pathToFile);
-            test.log(LogStatus.FAIL, "This has failed  ", file);
+         //   test.log(LogStatus.FAIL, "This has failed  ",file);
 
 		}
 		extentReports.endTest(test);

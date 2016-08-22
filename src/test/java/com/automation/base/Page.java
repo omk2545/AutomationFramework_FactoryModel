@@ -51,6 +51,8 @@ public 	ExtentTest test;
 		//The below method will save the screen shot in d drive with name "screenshot.png"
 		FileUtils.copyFile(scrFile, new File(path));
 
+		//Change
+
 		test.log(LogStatus.INFO,"Adding the screens ",test.addScreenCapture(path));
 
 

@@ -1,21 +1,16 @@
 package com.automation.pages;
 
+import com.automation.base.Page;
+import com.automation.helper.Constants;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
-import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.internal.Base64Encoder;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.automation.base.Page;
-import com.automation.helper.Constants;
 
 public class DisplayPage extends Page {
 
@@ -29,7 +24,7 @@ public class DisplayPage extends Page {
 	@FindBy(css = Constants.button_search_DisplayPage)
 	WebElement button_search_DisplayPage;
 
-	//@FindBy(css = Constants.ProductsdisplayedText)
+	//@FindBy(css = Constants.productsDisplayedText)
 	WebElement productsdisplayedText;
 
 	public Object findProduct(String productname) {
@@ -69,7 +64,7 @@ try {
 
 
 
-		//wait.until(ExpectedConditions.visibilityOf(ProductsdisplayedText));
+		//wait.until(ExpectedConditions.visibilityOf(productsDisplayedText));
 
 //		String productsData = ProductsdisplayedText.getText();
 //		if (productsData.contains("No products")) {

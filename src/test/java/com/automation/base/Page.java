@@ -1,6 +1,7 @@
 package com.automation.base;
 
 import com.automation.helper.Constants;
+import com.automation.pages.common.Topmenu;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.apache.commons.io.FileUtils;
@@ -8,8 +9,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-
-import com.automation.pages.common.Topmenu;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +25,9 @@ public 	ExtentTest test;
 		this.driver = driver;
 		this.test = test;
 //		Menu initialization as menu is common throughout the Pages
-		//topmenu = PageFactory.initElements(driver, Topmenu.class);
+       
+
+		topmenu = PageFactory.initElements(driver, Topmenu.class);
 
 	}
 
@@ -35,22 +36,20 @@ public 	ExtentTest test;
 	}
 
 
-	public  String  ScreenShot(  String fileName) throws IOException {
+	public  String  ScreenShot(  ) throws IOException {
 
 		Date date  = new Date();
 		String updatedName = date.toString().replace(":","_").replace(" ","_");
-		fileName = fileName+updatedName;
-
 
 		File scrFile;
-		String path = Constants.USER_DIR+"\\screenshots\\"+fileName+".png";
+		String path = Constants.USER_DIR+"\\screenshots\\"+updatedName+".png";
 
 		System.out.println(path);
 		scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		//The below method will save the screen shot in d drive with name "screenshot.png"
 		FileUtils.copyFile(scrFile, new File(path));
 
-		test.log(LogStatus.INFO,test.addScreenCapture("C:\\Users\\Public\\Pictures\\Sample Pictures\\Koala.jpg"));
+		test.log(LogStatus.INFO,"Adding the screens ",test.addScreenCapture(path));
 
 
 

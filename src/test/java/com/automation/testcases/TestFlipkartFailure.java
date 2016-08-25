@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 /**
  * Created by omkarkul on 8/18/2016.
  */
-public class testFlipkartFailure extends BaseTest {
+public class TestFlipkartFailure extends BaseTest {
 
 @Test
 public void test02(){

@@ -45,15 +45,37 @@ public class DataManager {
             noOfColumns++;
         }
 
+        Object data[][] = new Object[noOfRows][noOfColumns];
+        int dataRow =0;
 
         for(int i=dataStartRow; i<dataStartRow+noOfRows;i++){
             Hashtable<String,String> dataHashTable = new Hashtable<String, String>();
 
             for (int j=0;j<noOfColumns;j++){
+
                 System.out.println(  excelUtil.getCellData(sheet,j,i));
 
+                data[dataRow][j] = excelUtil.getCellData(sheet,j,i);
                // dataHashTable.put(excelUtil.getCellData(sheet),excelUtil.getCellData(sheet,j,i));
 
+            }
+
+            dataRow++;
+        }
+
+
+        int x= data.length;
+        int y = data[0].length;
+
+
+
+
+        for (int q =0; q < x;q++)
+        {
+
+            for (int w = 0; w < y; w++) {
+
+                System.out.println( " Data "+data[q][w]);
             }
         }
 

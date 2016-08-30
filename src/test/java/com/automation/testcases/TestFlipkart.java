@@ -13,6 +13,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.ITestResult;
+import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -27,8 +28,22 @@ public class TestFlipkart extends BaseTest{
 	@Test(dataProvider = "getdata")
 	public void test01(Hashtable <String,String> data) {
 
-        init(BROWSERTYPE.CHROME);
-        test = extentReports.startTest("TestCase01");
+
+
+		init(BROWSERTYPE.CHROME);
+
+		String testName = data.get("Product");
+
+		test = extentReports.startTest("TestCase01"+"_"+testName);
+
+		if(	!data.get("RunMode").equalsIgnoreCase("Y")) {
+
+			test.log(LogStatus.SKIP,"Skipping the Test As Run Mode is N");
+
+			throw new SkipException("Run mode is not set to Y");
+
+		}
+
 
 
 
@@ -57,6 +72,8 @@ public class TestFlipkart extends BaseTest{
 			e.printStackTrace();
 		}
 		//Assert.assertTrue(false);
+
+//		if (data.get(""))
 
 		Object page = displayPage.findProduct(Constants.validProduct);
 

@@ -17,8 +17,6 @@ public void test01(){
         extentTest = extentReports.startTest("Omkar");
 
         System.out.println("test is Executed");
-
-
         extentReports.endTest(extentTest);
         extentReports.flush();
 

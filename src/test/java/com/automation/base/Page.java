@@ -56,9 +56,6 @@ public 	ExtentTest test;
 		test.log(LogStatus.INFO,"Adding the screens ",test.addScreenCapture(path));
 
 
-
-
-
 		return "some";
 
 	}

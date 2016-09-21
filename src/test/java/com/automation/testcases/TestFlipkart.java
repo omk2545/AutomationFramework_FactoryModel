@@ -129,8 +129,8 @@ public class TestFlipkart extends BaseTest{
 		}
 		extentReports.endTest(test);
 
-		extentReports.flush();
-		driver.quit();
+//		extentReports.flush();
+//		driver.quit();
 
 	}
 

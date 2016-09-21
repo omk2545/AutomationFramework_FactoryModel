@@ -1,13 +1,12 @@
 package com.automation.testcases.base;
 
+import com.automation.helper.Constants.BROWSERTYPE;
 import com.automation.utils.ExtentManager;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import com.automation.helper.Constants.BROWSERTYPE;
 import org.testng.annotations.AfterMethod;
 
 public class BaseTest {
@@ -48,8 +47,14 @@ public 	ExtentTest test;
 		driver.manage().window().maximize();
 	   // driver.get("http:www.google.com");
 	}
+@AfterMethod
+public void tearDown(){
+
+	extentReports.flush();
+	driver.quit();
 
 
+}
 		
 		
 		

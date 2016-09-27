@@ -1,12 +1,11 @@
 package com.automation.pages;
 
-import com.relevantcodes.extentreports.ExtentTest;
-import org.openqa.selenium.WebDriver;
-
 import com.automation.base.Page;
+import com.relevantcodes.extentreports.ExtentTest;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class HomePage extends Page {
-	public HomePage(WebDriver driver, ExtentTest test
+	public HomePage(EventFiringWebDriver driver, ExtentTest test
 	) {
       super(driver,test );
 	}

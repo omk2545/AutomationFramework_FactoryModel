@@ -2,20 +2,20 @@ package com.automation.pages.common;
 
 import com.automation.helper.Constants;
 import com.relevantcodes.extentreports.ExtentTest;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.util.concurrent.TimeUnit;
 
 public class Topmenu  {
 
 	public  ExtentTest test;
-	public WebDriver driver;
+	public EventFiringWebDriver driver;
 
 
-	public Topmenu(WebDriver driver) {
+	public Topmenu(EventFiringWebDriver driver) {
     this.driver = driver;
 //	this.test = test;
 	}
@@ -26,8 +26,6 @@ public class Topmenu  {
 	public WebElement eletronicsMenu;
 	public void clickOnEletronics()
 	{
-
-
 		Actions actions = new Actions(driver);
 		actions.moveToElement(eletronicsMenu).build().perform();
 

@@ -7,8 +7,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,18 +15,19 @@ import java.util.Date;
 
 public class Page {
 
-	public WebDriver driver;
+
+	public EventFiringWebDriver driver;
 public 	ExtentTest test;
 	public Topmenu topmenu;
 
-	public Page(WebDriver driver , ExtentTest test) {
+	public Page(EventFiringWebDriver driver , ExtentTest test) {
 
 		this.driver = driver;
 		this.test = test;
 //		Menu initialization as menu is common throughout the Pages
        
 
-		topmenu = PageFactory.initElements(driver, Topmenu.class);
+	//	topmenu = PageFactory.initElements(driver, Topmenu.class);
 
 	}
 
@@ -54,9 +54,6 @@ public 	ExtentTest test;
 		//Change
 
 		test.log(LogStatus.INFO,"Adding the screens ",test.addScreenCapture(path));
-
-
-
 
 
 		return "some";

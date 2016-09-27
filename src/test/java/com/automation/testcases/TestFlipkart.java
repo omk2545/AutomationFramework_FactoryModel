@@ -26,15 +26,15 @@ public class TestFlipkart extends BaseTest{
 //	ExtentReports extentReports;
 //	ExtentTest extentTest;
 	@Test(dataProvider = "getdata")
-	public void test01(Hashtable <String,String> data) {
+public void test01(Hashtable <String,String> data) {
 
 
 
 		init(BROWSERTYPE.CHROME);
-
 		String testName = data.get("Product");
 
 		test = extentReports.startTest("TestCase01"+"_"+testName);
+        createEventListener(test,driver);
 
 		if(	!data.get("RunMode").equalsIgnoreCase("Y")) {
 
@@ -58,11 +58,11 @@ public class TestFlipkart extends BaseTest{
         LandingPage landingPage = new LandingPage(driver,test);
         PageFactory.initElements(driver,landingPage);
 
-		//extentTest.log(LogStatus.PASS,"We can conclude that test is Pass");
+		//test.log(LogStatus.PASS,"We can conclude that test is Pass");
 
 		//landingPage.getMenu().ClickonEletronics();
 		
-		
+
 		DisplayPage displayPage = landingPage.gotoFlipkart();
         test.log(LogStatus.INFO,"Flipkart site opened ");
 
@@ -71,12 +71,8 @@ public class TestFlipkart extends BaseTest{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		//Assert.assertTrue(false);
-
-//		if (data.get(""))
 
 		Object page = displayPage.findProduct(Constants.validProduct);
-
 
 		if (page instanceof ProductsDisplay) {
 			//System.out.println("");
@@ -106,11 +102,13 @@ public class TestFlipkart extends BaseTest{
 
     boolean vale =    ((ProductDetails) page2).verifyProductPrice();
 
-			Assert.assertTrue(false);
+//			Assert.assertTrue(false);
 
     }
-	
-	@AfterMethod
+
+
+
+    @AfterMethod
 	public void TearDown(ITestResult iTestResult) throws IOException {
 		System.out.println("Inside Teardown");
 

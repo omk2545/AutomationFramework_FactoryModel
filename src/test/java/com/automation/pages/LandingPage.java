@@ -1,16 +1,14 @@
 package com.automation.pages;
 
+import com.automation.base.Page;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-
-import com.automation.base.Page;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class LandingPage extends Page{
 
-	 public LandingPage(WebDriver driver , ExtentTest test) {
+	 public LandingPage(EventFiringWebDriver driver , ExtentTest test) {
      super(driver,test);
 	}
 

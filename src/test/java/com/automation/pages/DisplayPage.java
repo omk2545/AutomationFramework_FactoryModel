@@ -5,16 +5,16 @@ import com.automation.helper.Constants;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DisplayPage extends Page {
 
-	public DisplayPage(WebDriver driver, ExtentTest test) {
+	public DisplayPage(EventFiringWebDriver driver, ExtentTest test) {
 		super(driver, test);
 	}
 

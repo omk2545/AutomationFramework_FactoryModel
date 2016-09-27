@@ -1,19 +1,18 @@
 package com.automation.pages;
 
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
+import com.automation.base.Page;
+import com.automation.helper.Constants;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
-import com.automation.base.Page;
-import com.automation.helper.Constants;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ProductsDisplay extends Page {
 	
@@ -25,7 +24,7 @@ public class ProductsDisplay extends Page {
 	})
 	public List<WebElement > AllProducts; 
 	
-	public ProductsDisplay(WebDriver driver, ExtentTest test) {
+	public ProductsDisplay(EventFiringWebDriver driver, ExtentTest test) {
 	super(driver, test);
 	
 	
@@ -41,16 +40,14 @@ public  Object selectFirstProductFromList(){
 	test.log(LogStatus.INFO,"Finding out  list of elements");
 
 	if (allproc_list_productDisplay.isEmpty()) {
-		
-		System.out.println("inse e ee");
+
 		//return PageFactory.initElements(driver, ProductsDisplay.class);
 
 //        ProductsDisplay productsDisplay = new ProductsDisplay(driver,test);
 //        PageFactory.initElements(driver,productsDisplay);
 //        return productsDisplay;
 
-
-        test.log(LogStatus.INFO,"Not able to find Products ");
+        test.log(LogStatus.FAIL,"Not able to find Products");
         return this;
 	}else{
 		System.out.println("No of Products Displayed  "+allproc_list_productDisplay.size());

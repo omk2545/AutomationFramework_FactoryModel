@@ -7,6 +7,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,7 +44,7 @@ public class UtilsFlipkart  {
 
 
 
-    public static String capScreen(WebDriver driver, ExtentTest test){
+    public static String capScreen(EventFiringWebDriver driver, ExtentTest test){
 
         Date date  = new Date();
         String updatedName = date.toString().replace(":","_").replace(" ","_");
